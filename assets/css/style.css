@@ -19,45 +19,54 @@
 :root {
 
   /**
-   * colors
+   * colors — Sage Green & Warm Cream Palette
    */
 
   /* gradient */
 
   --bg-gradient-onyx: linear-gradient(to bottom right,
-      #346739 10%,
-      #346739 90%), #1b2e1e;
+      #DAE2B6 10%,
+      #CCD6A6 90%), #DAE2B6;
   --bg-gradient-jet: linear-gradient(to bottom right,
-      #346739 0%,
-      #346739 100%), #1b2e1e;
+      #DAE2B6 0%,
+      #F4EAD5 100%), #DAE2B6;
   --bg-gradient-white-1: linear-gradient(to bottom right,
-      #F2EDC2 0%,
-      #ffffff 50%);
+      #FFFBE9 0%,
+      #F4EAD5 50%);
   --bg-gradient-white-2: linear-gradient(135deg,
-      #F2EDC2 0%,
-      #ffffff 59.86%), #F2EDC2;
+      #FFFBE9 0%,
+      #F4EAD5 59.86%), #F4EAD5;
 
   --text-gradient-white: linear-gradient(to right,
-      #F2EDC2,
-      #F2EDC2);
+      #CCD6A6,
+      #DAE2B6);
 
   /* solid */
 
-  --jet: #1b2e1e;
-  --onyx: #346739;
-  --eerie-black-1: #F2EDC2;
-  --eerie-black-2: #346739;
-  /* Background for articles/sidebar */
-  --smoky-black: #1b2e1e;
-  --white-1: #1b2e1e;
-  /* Dark text on light bgs if any */
-  --white-2: #F2EDC2;
-  /* Main text color */
-  --orange-white-crayola: #79AE6F;
-  --vegas-gold: #9FCB98;
-  --light-gray: #F2EDC2;
-  --light-gray-70: rgba(242, 237, 194, 0.7);
-  --bittersweet-shimmer: #79AE6F;
+  --jet: #DAE2B6;
+  /* borders / dividers */
+  --onyx: #F4EAD5;
+  /* card inner background */
+  --eerie-black-1: #CCD6A6;
+  /* accent badge bg */
+  --eerie-black-2: #F4EAD5;
+  /* card / article background */
+  --smoky-black: #FFFBE9;
+  /* page / main background */
+  --white-1: #3A4A2E;
+  /* primary dark text — dark olive */
+  --white-2: #3A4A2E;
+  /* headings */
+  --orange-white-crayola: #7A9A5A;
+  /* accent / highlight — medium sage */
+  --vegas-gold: #8A9E6A;
+  /* timeline dates / accents */
+  --light-gray: #4A5C38;
+  /* body text — dark olive green */
+  --light-gray-70: rgba(74, 92, 56, 0.7);
+  /* subtle text */
+  --bittersweet-shimmer: #7A9A5A;
+  /* icon color */
 
   /**
    * typography
@@ -86,11 +95,11 @@
    * shadow
    */
 
-  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
-  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
-  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
-  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
-  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+  --shadow-1: -4px 8px 24px hsla(90, 25%, 55%, 0.18);
+  --shadow-2: 0 16px 30px hsla(90, 25%, 55%, 0.15);
+  --shadow-3: 0 16px 40px hsla(90, 25%, 55%, 0.15);
+  --shadow-4: 0 25px 50px hsla(90, 25%, 55%, 0.12);
+  --shadow-5: 0 24px 80px hsla(90, 25%, 55%, 0.18);
 
   /**
    * transition
@@ -106,28 +115,28 @@
 \*-----------------------------------*/
 
 body.light-mode {
-  --jet: #ffffff;
-  --onyx: #F2EDC2;
-  --eerie-black-1: #346739;
-  --eerie-black-2: #ffffff;
-  --smoky-black: #fbf9e6;
-  --white-1: #346739;
-  --white-2: #346739;
-  --light-gray: #346739;
-  --light-gray-70: rgba(52, 103, 57, 0.7);
+  --jet: #CCD6A6;
+  --onyx: #FFFBE9;
+  --eerie-black-1: #A8BE78;
+  --eerie-black-2: #FFFBE9;
+  --smoky-black: #ffffff;
+  --white-1: #2A3820;
+  --white-2: #2A3820;
+  --light-gray: #3A4A2E;
+  --light-gray-70: rgba(58, 74, 46, 0.7);
 
-  --bg-gradient-onyx: linear-gradient(to bottom right, #F2EDC2 10%, #ffffff 90%), #ffffff;
-  --bg-gradient-jet: linear-gradient(to bottom right, #F2EDC2 0%, #ffffff 100%), #ffffff;
+  --bg-gradient-onyx: linear-gradient(to bottom right, #FFFBE9 10%, #F4EAD5 90%), #FFFBE9;
+  --bg-gradient-jet: linear-gradient(to bottom right, #FFFBE9 0%, #F4EAD5 100%), #FFFBE9;
 }
 
 body.light-mode article,
 body.light-mode .sidebar {
-  box-shadow: 0 8px 32px rgba(52, 103, 57, 0.05);
-  border: 1px solid rgba(52, 103, 57, 0.1);
+  box-shadow: 0 8px 32px rgba(204, 214, 166, 0.2);
+  border: 1px solid rgba(204, 214, 166, 0.3);
 }
 
 body.light-mode .navbar {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 251, 233, 0.95);
 }
 
 
@@ -135,10 +144,9 @@ body.light-mode .navbar {
   #sliderShape + Background
 \*-----------------------------------*/
 :root {
-  background: linear-gradient(to left, #346739, var(--jet));
+  background: linear-gradient(135deg, #FFFBE9 0%, #F4EAD5 50%, #DAE2B6 100%);
   background-position: center;
   background-size: cover;
-  /* background-repeat: no-repeat; */
 }
 
 :root::before {
@@ -146,14 +154,12 @@ body.light-mode .navbar {
   content: "";
   width: 90vh;
   height: 90vh;
-  background: #346739;
-  opacity: 0.90;
-  /* Subtle green glow */
+  background: radial-gradient(ellipse at center, #CCD6A6 0%, #DAE2B6 55%, transparent 100%);
+  opacity: 0.45;
   border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%;
   will-change: border-radius, transform, opacity;
   animation: sliderShape 10s linear infinite;
   z-index: -1;
-  /* -webkit-animation: sliderShape 10s linear infinite; */
 }
 
 @keyframes sliderShape {
@@ -267,7 +273,7 @@ article {
 .sidebar:hover,
 article:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(52, 103, 57, 0.15);
+  box-shadow: 0 10px 30px rgba(204, 214, 166, 0.35);
 }
 
 .separator {
