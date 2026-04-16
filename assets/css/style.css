@@ -258,6 +258,7 @@ html {
 
 p {
   text-align: justify;
+  margin-bottom: 15px;
 }
 
 .sidebar,
@@ -318,6 +319,11 @@ article {
 article.active {
   display: block;
   animation: fade 0.5s ease backwards;
+}
+
+article > header {
+  margin-top: 20px;
+  margin-bottom: 25px;
 }
 
 @keyframes fade {
@@ -503,7 +509,7 @@ main {
 }
 
 .info-content .title {
-  color: var(--onyx);
+  color: var(black);
   background: var(--eerie-black-1);
   font-size: var(--fs-8);
   font-weight: var(--fw-300);
@@ -675,10 +681,6 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
-}
-
-.about-text p {
-  margin-bottom: 15px;
 }
 
 
@@ -1462,6 +1464,8 @@ main {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
+  margin-bottom: 0;
+  line-height: 1;
 }
 
 .achievement-meta .dot {

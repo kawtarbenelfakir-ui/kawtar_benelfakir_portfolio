@@ -152,16 +152,25 @@ const pages = document.querySelectorAll("[data-page]");
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
+    const clickedLink = this;
+
+    for (let j = 0; j < pages.length; j++) {
+      if (clickedLink.innerHTML.toLowerCase() === pages[j].dataset.page) {
+        pages[j].classList.add("active");
       } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+        pages[j].classList.remove("active");
       }
     }
+
+    for (let j = 0; j < navigationLinks.length; j++) {
+      if (navigationLinks[j] === clickedLink) {
+        navigationLinks[j].classList.add("active");
+      } else {
+        navigationLinks[j].classList.remove("active");
+      }
+    }
+
+    window.scrollTo(0, 0);
   });
 }
 
@@ -170,7 +179,7 @@ const themeBtn = document.querySelector("[data-theme-btn]");
 
 themeBtn.addEventListener("click", function () {
   document.body.classList.toggle("light-mode");
-  
+
   // save preference
   if (document.body.classList.contains("light-mode")) {
     localStorage.setItem("theme", "light");
@@ -183,3 +192,43 @@ themeBtn.addEventListener("click", function () {
 if (localStorage.getItem("theme") === "light") {
   document.body.classList.add("light-mode");
 }
+
+
+
+// certification lightbox — wrapped in DOMContentLoaded so script order doesn't matter
+document.addEventListener("DOMContentLoaded", function () {
+
+  const lightbox    = document.getElementById("certLightbox");
+  const lightboxImg = document.getElementById("certLightboxImg");
+  const closeBtn    = document.getElementById("certLightboxClose");
+  const backBtn     = document.getElementById("certLightboxBack");
+
+  window.openCertLightbox = function (src) {
+    lightboxImg.src = src;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  };
+
+  function closeCertLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // close button (✕)
+  if (closeBtn) closeBtn.addEventListener("click", closeCertLightbox);
+
+  // go back button
+  if (backBtn) backBtn.addEventListener("click", closeCertLightbox);
+
+  // click on dark backdrop closes lightbox
+  lightbox.addEventListener("click", closeCertLightbox);
+
+  // clicking the image itself should NOT close the lightbox
+  lightboxImg.addEventListener("click", function (e) { e.stopPropagation(); });
+
+  // Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeCertLightbox();
+  });
+
+});
